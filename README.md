@@ -14,6 +14,13 @@ At the core of our approach is a sentence-level classifier (more details [here](
 
 ![alt text](system_architecture.png)
 
+### ChatGPT
+
+\todo
+
 ## Data
 
 The data used for answer-in-the-sentence classifier training and evaluation, as well as for evaluation of passage- and ranking-level answerability scores aggregation is covered in detail [here](/data/README.md).
+
+## Results
+
