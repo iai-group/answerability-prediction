@@ -7,7 +7,7 @@ The classifier is built using a BERT transformer model with a sequence classific
 Sentence-level answerability prediction is evaluated on the test partition of the CAsT-answerability dataset. The results can be obtained by running this command:
 `python -m answerability_prediction.sentence_classification.classifier --model_name {name_of_the_classifier} --test` 
 
-The name of the classifier (_name_of_the_classifier_) can be selected from the following list:
+The name of the classifier can be selected from the following list:
   - [snippets_unanswerable](../../models/snippets_unanswerable/) - BERT model trained for answerability prediction with train partition of CAsT-snippets data extended with CAsT-unanswerable (CAsT-answerability)
   - [squad_snippets_unanswerable](../../models/squad_snippets_unanswerable/) - BERT model trained for answerability prediction with train partition of CAsT-answerability dataset extended with downsampled SQuAD 2.0
 
