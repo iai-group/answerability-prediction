@@ -141,42 +141,6 @@ def append_cast_snippets_answerability_information(
     )
 
 
-def select_passages_with_low_relevance_scores(
-    relevance_scores_path: str,
-    number_of_passages_per_query: int,
-    results_path: str,
-):
-    """Selects passages with low relevance scores from qrels.
-
-    Args:
-        relevance_scores_path: Path to the file with relevance scores.
-        number_of_passages_per_query: The number of passages to select per query.
-        results_path: Path to the results file.
-    """
-    relevance_scores_df = pd.read_csv(
-        relevance_scores_path, sep="\t", encoding="utf-8"
-    )
-
-    turn_ids = list(relevance_scores_df["turn_id"].unique())
-    selected_samples = pd.DataFrame()
-
-    for turn_id in turn_ids:
-        turn_id_qrels = relevance_scores_df[
-            relevance_scores_df["turn_id"] == turn_id
-        ]
-        low_score_passages = turn_id_qrels[
-            turn_id_qrels["relevance_score"] == 0
-        ]
-        selected_samples = pd.concat(
-            [
-                selected_samples,
-                low_score_passages.sample(n=number_of_passages_per_query),
-            ]
-        )
-
-    selected_samples.to_csv(results_path)
-
-
 def append_cast_unanswerable_with_query(
     unanswerable_data_path: str,
     snippets_data_path: str,
