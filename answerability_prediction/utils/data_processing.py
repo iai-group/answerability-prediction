@@ -1,6 +1,9 @@
+"""Functions for processing answerability data."""
+
 import ast
 import glob
 import os
+from typing import List
 
 import pandas as pd
 

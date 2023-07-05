@@ -1,10 +1,10 @@
+"""Functions for constructing training data for sentence-level answerability
+classifier."""
 import ast
 import copy
-import glob
-import os
 import random
 from collections import defaultdict
-from typing import List
+from typing import Dict, List, Tuple
 
 import pandas as pd
 from datasets import load_dataset
@@ -207,7 +207,7 @@ def prepare_squad_training_data(
     """Preprocesses SQuAD 2.0 dataset to be used for unanswerability predicition.
 
     Args:
-        training_data_path: Path to the directory where the training data will 
+        training_data_path: Path to the directory where the training data will
             be stored.
     """
 
@@ -397,6 +397,27 @@ def prepare_unanswerable_cast_training_data(
     training_dataset_df.to_csv(results_path)
 
 
+def read_training_data_from_df(
+    training_data_df: pd.DataFrame,
+) -> Tuple[Dict[str, List[str]], Dict[str, List[int]]]:
+    """Reads training data from DataFrame into dictionaries of samples and labels.
+
+    Args:
+        training_data_path: DataFrame with training data.
+
+    Returns:
+        Dictionaries of samples and labels divided into partitions.
+    """
+    sentences = {"train": [], "validation": [], "test": []}
+    labels = copy.deepcopy(sentences)
+
+    for _, sample in training_data_df.iterrows():
+        sentences[sample["partition"]].append(sample["sentences"])
+        labels[sample["partition"]].append(sample["labels"])
+
+    return sentences, labels
+
+
 if __name__ == "__main__":
     # Prepare training data from CAsT-snippets
     snippets_data_sentence_answerability_path = (
@@ -485,4 +506,15 @@ if __name__ == "__main__":
     append_cast_unanswerable_with_partition_information(
         cast_unanswerable_data_path,
         cast_unanswerable_training_data_path,
+    )
+
+    aggregated_train_data = pd.concat(
+        (
+            pd.read_csv(f)
+            for f in [snippets_training_data_path, cast_unanswerable_data_path]
+        ),
+        ignore_index=True,
+    )
+    aggregated_train_data.to_csv(
+        "data/CAsT-answerability_training_data.csv", index=False
     )
