@@ -4,3 +4,8 @@ The answer-in-the-sentence classifier is trained on sentence-level data from the
 
 The classifier is built using a BERT transformer model with a sequence classification head on top BertForSequenceClassification provided by [HuggingFace](https://huggingface.co/docs/transformers/model\_doc/bert\#transformers.BertForSequenceClassification). Each data sample contains `question [SEP] sentence` as input and a binary answerability label. The output of the classifier is the probability that the sentence contains (part of) the answer to the question. The implementation of the answer-in-the-sentence classifier can be found in [classifier.py](classifier.py).
 
+## Trained classifiers
+
+The following training classifier are available:
+  - [snippets_unanswerable](../../models/snippets_unanswerable/) - BERT model trained for answerability prediction with train partition of CAsT-snippets data extended with CAsT-unanswerable (CAsT-answerability)
+  - [squad_snippets_unanswerable](../../models/squad_snippets_unanswerable/) - BERT model trained for answerability prediction with train partition of CAsT-answerability dataset extended with downsampled SQuAD 2.0
