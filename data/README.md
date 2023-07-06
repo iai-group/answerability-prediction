@@ -37,7 +37,7 @@ Additionally, we build sentence-level training data from the SQuAD 2.0 dataset t
 
 Aggregation methods applied to sentence-level answerability scores result in passage-level answerability scores. 
 
-The files with passage-level answerability scores can be found [here](aggregation_results/max_mean/passage/). The filenames contain information about the answer-in-the-sentence classifier (_squad_snippets_unanswerable_ or _snippets_unanswerable_) used for predicting sentence-level answerability scores and the dataset (_CAsT_answerablility_, _CAsT_snippets_, or _CAsT_unanswerable_) for which the aggregation methods are applied: `{model_name}_classifier-{dataset}`. The predictions returned by different classifiers for all the datasets can be found [here](aggregation_results/) with the filenames of the following format: `{model_name}_classifier-{dataset}-sentence_predictions`.
+The files with passage-level answerability scores can be found [here](aggregation_results/max_mean/passage/). The filenames contain information about the answer-in-the-sentence classifier (_squad_snippets_unanswerable_ or _snippets_unanswerable_) used for predicting sentence-level answerability scores and the dataset (_CAsT_answerablility_, _CAsT_snippets_, or _CAsT_unanswerable_) for which the aggregation methods are applied: `{model_name}_classifier-{dataset}.csv`. The predictions returned by different classifiers for all the datasets can be found [here](aggregation_results/) with the filenames of the following format: `{model_name}_classifier-{dataset}-sentence_predictions.csv`.
 
 Methods used for the generation of passage-level answerability scores can be found in [passage_level_aggregation.py](../answerability_prediction/answerability_aggregation/passage_level_aggregation.py). 
 
@@ -46,8 +46,11 @@ Methods used for the generation of passage-level answerability scores can be fou
 
 For ranking-level answerability, which is the ultimate task we are addressing, we consider different input rankings, i.e., sets of n=3 passages, for the same input question. Specifically, for each unique input test question from CAsT-answerability (38), we generate all possible n-element subsets of passages available for this question (both containing and not containing an answer), thereby simulating passage rankings of varying quality. These rankings represent inputs with various degrees of difficulty for the same question, ranging from all passages containing an answer to a single passage with an answer to _no answer found in the corpus_.
 
-The files with ranking-level answerability scores can be found [here](aggregation_results/max_mean/ranking/). The filenames contain information about the answer-in-the-sentence classifier (_squad_snippets_unanswerable_ or _snippets_unanswerable_) used for predicting sentence-level answerability scores and the dataset (_CAsT_answerablility_) for which the aggregation methods are applied: `{model_name}_classifier-{dataset}`.
+The files with ranking-level answerability scores can be found [here](aggregation_results/max_mean/ranking/). The filenames contain information about the answer-in-the-sentence classifier (_squad_snippets_unanswerable_ or _snippets_unanswerable_) used for predicting sentence-level answerability scores and the dataset (_CAsT_answerablility_) for which the aggregation methods are applied: `{model_name}_classifier-{dataset}.csv`.
 
 Methods used for the generation of ranking-level answerability scores can be found in [ranking_level_aggregation.py](../answerability_prediction/answerability_aggregation/ranking_level_aggregation.py). 
 
 
+## ChatGPT answerability prediction results
+
+Results of answerability prediction with ChatGPT can be found [here](/aggregation_results/chatgpt/). The filenames have the following format: `{prediction_level}_level-{dataset}-{prompt_variant}.csv` informing about level of answerability prediction (passage or ranking), dataset for which the predictions are made (CAsT-answerability), and variant of the prompt (zero-shot or two-shot). [ChatGPT-CAsT_answerability.csv](/aggregation_results/max_mean/ranking/ChatGPT-CAsT_answerability.csv) contains results of aggregation methods applied to passage-level answerability predictions returned by ChatGPT.

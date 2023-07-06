@@ -20,7 +20,7 @@ At the core of our approach is a sentence-level classifier (more details [here](
 
 ### ChatGPT
 
-/todo
+For reference, we compare against a state-of-the-art large language model (LLM), using the most recent snapshot of GPT-3.5 (gpt-3.5-turbo-0301) via the ChatGPT API. More details about the setup and implementation can be found [here](/answerability_prediction/chatgpt/README.md). Data generated with ChatGPT are covered in details [here](/data/README.md)
 
 ## Results
 
