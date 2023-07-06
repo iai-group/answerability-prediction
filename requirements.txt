@@ -16,3 +16,5 @@ scikit-learn==0.24.2
 sentencepiece>=0.1.95
 pandas>=2.0.3
 datasets>=2.13.1
+openai
+tiktoken
