@@ -35,7 +35,7 @@ Additionally, we build sentence-level training data from the SQuAD 2.0 dataset t
 
 ### Passage-level
 
-Aggregation methods applied to sentence-level answerability scores result in passage-level answerability scores. 
+Aggregation methods applied to sentence-level answerability scores result in passage-level answerability scores.
 
 The files with passage-level answerability scores can be found [here](aggregation_results/max_mean/passage/). The filenames contain information about the answer-in-the-sentence classifier (_squad_snippets_unanswerable_ or _snippets_unanswerable_) used for predicting sentence-level answerability scores and the dataset (_CAsT_answerablility_, _CAsT_snippets_, or _CAsT_unanswerable_) for which the aggregation methods are applied: `{model_name}_classifier-{dataset}.csv`. The predictions returned by different classifiers for all the datasets can be found [here](aggregation_results/) with the filenames of the following format: `{model_name}_classifier-{dataset}-sentence_predictions.csv`.
 
