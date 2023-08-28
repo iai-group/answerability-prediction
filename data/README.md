@@ -50,6 +50,7 @@ The files with ranking-level answerability scores can be found [here](aggregatio
 
 Methods used for the generation of ranking-level answerability scores can be found in [ranking_level_aggregation.py](../answerability_prediction/answerability_aggregation/ranking_level_aggregation.py). 
 
+![alt text](cast-answerability.png)
 
 ## ChatGPT answerability prediction results
 
