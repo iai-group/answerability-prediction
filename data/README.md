@@ -8,6 +8,10 @@ The resulting dataset that is a concatenation of CAsT-snippets and CAsT-unanswer
 
 Additionally, we build sentence-level training data from the SQuAD 2.0 dataset to provide the classifier with additional training material and thus guidance in terms of questions that can be answered with a short snippet contained in a single sentence. Data from SQuAD 2.0 is downsampled to be balanced in terms of the number of answerable and unanswerable question-sentence pairs (training data built from SQuAD 2.0 can be found [here](SQuAD-2/training_data.csv)).
 
+### Sample from CAsT-answerability dataset
+
+![alt text](../cast-answerability.png)
+
 ### Comparison of different datasets
 
 |  | SQuAD 2.0 | CAsT-snippets | CAsT-unanswerable |
@@ -21,7 +25,6 @@ Additionally, we build sentence-level training data from the SQuAD 2.0 dataset t
 | # sentences w/ answers in ans. query-passage pairs | 106,146 | 6395 | 0 |
 | # sentences w/o answers in ans. query-passage pairs | 369,025 | 5839 | 0 |
 | # sentences w/o answers in unans. query-passage pairs | 250,365 | 453 | 12,751 |
-
 
 ### Statistics for the CAsT-answerability dataset
  
@@ -49,8 +52,6 @@ For ranking-level answerability, which is the ultimate task we are addressing, w
 The files with ranking-level answerability scores can be found [here](aggregation_results/max_mean/ranking/). The filenames contain information about the answer-in-the-sentence classifier (_squad_snippets_unanswerable_ or _snippets_unanswerable_) used for predicting sentence-level answerability scores and the dataset (_CAsT_answerablility_) for which the aggregation methods are applied: `{model_name}_classifier-{dataset}.csv`.
 
 Methods used for the generation of ranking-level answerability scores can be found in [ranking_level_aggregation.py](../answerability_prediction/answerability_aggregation/ranking_level_aggregation.py). 
-
-![alt text](../cast-answerability.png)
 
 ## ChatGPT answerability prediction results
 
