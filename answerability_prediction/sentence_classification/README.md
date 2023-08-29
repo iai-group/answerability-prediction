@@ -8,8 +8,11 @@ Sentence-level answerability prediction is evaluated on the test partition of th
 `python -m answerability_prediction.sentence_classification.classifier --model_name {name_of_the_classifier} --test` 
 
 The name of the classifier can be selected from the following list:
-  - [snippets_unanswerable](../../models/snippets_unanswerable/) - BERT model trained for answerability prediction with train partition of CAsT-snippets data extended with CAsT-unanswerable (CAsT-answerability)
-  - [squad_snippets_unanswerable](../../models/squad_snippets_unanswerable/) - BERT model trained for answerability prediction with train partition of CAsT-answerability dataset extended with downsampled SQuAD 2.0
+  - snippets_unanswerable - BERT model trained for answerability prediction with train partition of CAsT-snippets data extended with CAsT-unanswerable (CAsT-answerability)
+  - squad_snippets_unanswerable - BERT model trained for answerability prediction with train partition of CAsT-answerability dataset extended with downsampled SQuAD 2.0
+
+Trained models can be found in the [shared folder](https://iai.group/downloads/emnlp2023-answerability_prediction/ 
+) on the server.
 
 It is also possible to fine-tune a new classifier with the following command:
 `python -m answerability_prediction.sentence_classification.classifier --model_name {name_of_the_classifier} --train --test` 
