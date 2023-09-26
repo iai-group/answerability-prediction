@@ -8,7 +8,7 @@ Generative AI models face the challenge of hallucinations that can undermine use
 
 ## Data
 
-The data used for answer-in-the-sentence classifier training and evaluation, as well as for evaluation of passage- and ranking-level answerability scores aggregation is covered in detail [here](/data/README.md).
+The data used for answer-in-the-sentence classifier training and evaluation, as well as for evaluation of passage- and ranking-level answerability scores aggregation is covered in detail [here](data/README.md).
 
 ## Answerability Detection
 
