@@ -14,13 +14,13 @@ The data used for answer-in-the-sentence classifier training and evaluation, as 
 
 The challenge of answerability in conversational information seeking arises from the fact that the answer is typically not confined to a single entity or text snippet, but rather spans across multiple sentences or even multiple paragraphs. 
 
-At the core of our approach is a sentence-level classifier (more details [here](/answerability_prediction/sentence_classification/README.md)) that can distinguish sentences that contribute to the answer from ones that do not. These sentence-level estimates are then aggregated on the passage level and then further on the ranking level (i.e., set of top-n passages) (more details [here](/answerability_prediction/answerability_aggregation/README.md)) to determine whether the question is answerable. 
+At the core of our approach is a sentence-level classifier (more details [here](answerability_prediction/sentence_classification/README.md)) that can distinguish sentences that contribute to the answer from ones that do not. These sentence-level estimates are then aggregated on the passage level and then further on the ranking level (i.e., set of top-n passages) (more details [here](answerability_prediction/answerability_aggregation/README.md)) to determine whether the question is answerable. 
 
 ![alt text](system_architecture.png)
 
 ### ChatGPT
 
-For reference, we compare against a state-of-the-art large language model (LLM), using the most recent snapshot of GPT-3.5 (gpt-3.5-turbo-0301) via the ChatGPT API. More details about the setup and implementation can be found [here](/answerability_prediction/chatgpt/README.md). Data generated with ChatGPT are covered in details [here](/data/README.md).
+For reference, we compare against a state-of-the-art large language model (LLM), using the most recent snapshot of GPT-3.5 (gpt-3.5-turbo-0301) via the ChatGPT API. More details about the setup and implementation can be found [here](answerability_prediction/chatgpt/README.md). Data generated with ChatGPT are covered in details [here](data/README.md).
 
 ## Results
 
