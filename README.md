@@ -2,6 +2,10 @@
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
+This repository provides resources developed within the following article [[PDF](https://arxiv.org/abs/2401.11452)]:
+
+> W. Łajewska and K. Balog. **Towards Reliable and Factual Response Generation: Detecting Unanswerable Questions in Information-seeking Conversations.** In: Proceedings of the 46th European Conference on Information Retrieval (ECIR ’24). Glasgow, United Kingdom. March 2024. [10.1007/978-3-031-56063-7_25](https://doi.org/10.1007/978-3-031-56063-7_25)
+
 ## Summary
 
 Generative AI models face the challenge of hallucinations that can undermine users' trust in such systems. We propose to approach the problem of conversational information seeking as a two-step process, where relevant passages in a corpus are identified first and then summarized into a final system response. This way we can automatically assess if the answer to the user's question is present in the corpus. Specifically, our proposed method employs a sentence-level classifier to detect if the answer is present, then aggregates these predictions on the passage level, and eventually across the top-ranked passages to arrive at a final answerability estimate. For training and evaluation, we develop a dataset based on the TREC CAsT benchmark that includes answerability labels on the sentence, passage, and ranking levels. We demonstrate that our proposed method represents a strong baseline and outperforms a state-of-the-art LLM on the answerability prediction task. 
@@ -107,3 +111,24 @@ Results for answerability detection on the sentence-, passage-, and ranking-leve
         </tr>
     </tbody>
 </table>
+
+## Citation
+
+If you use the resources presented in this repository, please cite:
+
+```
+@inproceedings{Lajewska:2024:ECIR,
+	author = {{\L}ajewska, Weronika and Balog, Krisztian},
+	title = {Towards Reliable and Factual Response Generation: Detecting Unanswerable Questions in Information-Seeking Conversations},
+	year = {2024},
+	doi = {10.1007/978-3-031-56063-7_25},
+	url = {https://doi.org/10.1007/978-3-031-56063-7_25},
+	booktitle = {Proceedings of the 46th European Conference on Information Retrieval},
+	pages = {336--344},
+	series = {ECIR '24}
+}
+```
+
+## Contact
+
+Should you have any questions, please contact `Weronika Łajewska` at `weronika.lajewska`[AT]uis.no (with [AT] replaced by @).
